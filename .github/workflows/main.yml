@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Report to slack
-        uses: kenfdev/playwright-report-slack-action@v1.0.1
+        uses: kenfdev/playwright-report-slack-action@v1.0.2
         with:
           results-json-path: 'report.json'
           artifact-url: 'https://test.test'
