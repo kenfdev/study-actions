@@ -1,0 +1,167 @@
+{
+  "config": {
+    "configFile": "config/path/config.file.ts",
+    "rootDir": "tests/root/directory",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "output/path/results-directory",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "project1",
+        "name": "setup",
+        "testDir": "tests/directory1",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 1000
+      },
+      {
+        "outputDir": "output/path/results-directory",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "project2",
+        "name": "chromium",
+        "testDir": "tests/directory2",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 1000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "version-info",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "suite1",
+      "file": "file1.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test-spec1",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "project1",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "timedOut",
+                  "duration": 1007,
+                  "error": {
+                    "message": "Error message",
+                    "stack": "Error stack trace"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error message"
+                    },
+                    {
+                      "location": {
+                        "file": "location-path",
+                        "column": 27,
+                        "line": 25
+                      },
+                      "message": "Error detailed message"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "time-stamp",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "unique-id1",
+          "file": "file-path1",
+          "line": 11,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "suite2",
+      "file": "file2.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "sub-suite1",
+          "file": "sub-file1.ts",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "test-spec2",
+              "ok": true,
+              "tags": [
+                "tag1"
+              ],
+              "tests": [
+                {
+                  "timeout": 1000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "project2",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "unique-id2",
+              "file": "sub-file-path1",
+              "line": 15,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "start-time",
+    "duration": 16734.068000000003,
+    "expected": 0,
+    "skipped": 3,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}
